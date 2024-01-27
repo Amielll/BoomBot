@@ -1,7 +1,7 @@
 import musicnotes from "./musical_notes.png"
 import boombox from "./boombox.png"
 import './App.css';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js"
 
 function App() {
@@ -37,25 +37,44 @@ function App() {
         window.location.hash = "";
 
         if (TOKEN) {
+            console.log("I have a token", TOKEN);
             spotify.setAccessToken(TOKEN);
             spotify.getMe().then((user) => {
                 console.log(user);
+                setUserLoggedIn(true);
+                setUser(user);
+            }, (err) => {
+                console.log("Some error occurred.", err);
             })
+            
         }
     })
 
+    const [userLoggedIn, setUserLoggedIn] = useState(false);
+    const [user, setUser] = useState(null);
+
     return (
         <div className="App">
+             {userLoggedIn ? 
+            <div>
+                Hello, {user.display_name}
+            </div> : null}
             <div className="my-style">
                 boomboxify
             </div>
             <div className='subheader'>
                 Your Retro AI Boombox, Bringing Nostalgia to the Digital Era!
             </div>
-            <button id='button1'>
+            {!userLoggedIn ? <button id='button1'>
                 <a href={loginUrl}>Get started with Spotify!</a>
-            </button>
-            <button id='button2'>link to our chatbot!</button>
+            </button> : null}
+
+            {!userLoggedIn ? <button id='button2'>link to our chatbot!</button>: null}
+            <div>
+            
+           
+
+            </div>
             <img src={musicnotes} id="musicnotes"></img>
             <img src={boombox} id="boombox"></img>
         </div>

@@ -48,7 +48,7 @@ html {
 
 body {
   background-color: #E07958;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family: 'Lobster', sans-serif;
 }
 
 .my-style {
@@ -64,7 +64,6 @@ main.MuiBox-root {
 }
 
 .subheader {
-  margin-top: -1rem;
   text-align: center;
   color: white;
   font-size: 2rem;
