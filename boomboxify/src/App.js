@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import SpotifyWebApi from "spotify-web-api-js"
 
 function App() {
+    
     const authEndpoint = "https://accounts.spotify.com/authorize";
     const redirectUri = "http://localhost:3000";
     const clientId = "8e061b5b273b4471b3445424020de727";
@@ -35,6 +36,8 @@ function App() {
     useEffect(() => {
         const TOKEN = getTokenFromUrl().access_token;
         window.location.hash = "";
+        window.location.href = window.location.href.replace(/#$/, '');
+        localStorage.setItem("cookie", TOKEN);
 
         if (TOKEN) {
             spotify.setAccessToken(TOKEN);
