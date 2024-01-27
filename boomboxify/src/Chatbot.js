@@ -1,6 +1,7 @@
 import React from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 import Speech from 'react-speech';
+import Header from './Header';
 
 
 const Dictaphone = () => {
@@ -40,6 +41,7 @@ function Chatbot(props) {
 
     return (
         <div>
+            <Header focus="chatbot"></Header>
             <Speech text={text} />,
             <Dictaphone></Dictaphone>
             <button onClick={() => handleBackButtonClick()}>You are at Chatbot page. click to back to main page</button>
