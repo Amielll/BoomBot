@@ -94,7 +94,7 @@ function App(props) {
             </div>
             <div class="corner-border top-right"></div>
             <div class="corner-border bottom-left"></div>
-            <div class="image-container"><img src={boombox} alt="boombox" class="boombox"/></div>
+            <img src={boombox} alt="boombox" class="boombox"/>
         </div>
 
     );

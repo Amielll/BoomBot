@@ -18,6 +18,5 @@ export default function Header(props) { // TODO: add addresses
     <div className={`header-elem ${c}`}><a href='#'>Chat</a></div>
     <div className={`header-elem ${p}`}><a href='#'>Playlist</a></div>
     </div>
-    
   </nav>
 }
