@@ -49,3 +49,16 @@ div {
   justify-content: center;
   margin-top: 2rem;
 }
+
+.button-container2 {
+  margin-top: -2rem;
+}
+
+.button-elem2 {
+  font-family: 'RobotoSlab', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: black;
+  background-color: white;
+}
+
+.microphone {
+color: #E9D7A5;}

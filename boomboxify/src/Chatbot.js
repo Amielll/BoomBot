@@ -22,10 +22,14 @@ const Dictaphone = () => {
   
     return (
         <div>
-            <p>Microphone: {listening ? 'on' : 'off'}</p>
-            <button onClick={SpeechRecognition.startListening}>Start</button>
-            <button onClick={SpeechRecognition.stopListening}>Stop</button>
-            <button onClick={resetTranscript}>Reset</button>
+            
+            <div className='button-container2'>
+            <p className='microphone'>Microphone: {listening ? 'on' : 'off'}</p>
+            <button className='button-elem2' onClick={SpeechRecognition.startListening}>Start</button>
+            <button className='button-elem2' onClick={SpeechRecognition.stopListening}>Stop</button>
+            <button className='button-elem2' onClick={resetTranscript}>Reset</button>
+
+            </div>
             <p>{transcript}</p>
         </div>
     );
