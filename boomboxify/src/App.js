@@ -56,7 +56,7 @@ function App() {
         <div class="App">
             <div id="page-container">
                 <div id="content-wrap">  
-                    <div>{popupToggle ? <Popup></Popup> : <p></p>}</div>
+                    <div>{popupToggle ? <Popup setUserAge={{setUserAge}}></Popup> : <p></p>}</div>
                     <div class="my-style">
                         BOOMBOT
                     </div>
