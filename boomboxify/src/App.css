@@ -7,6 +7,16 @@
   pointer-events: none;
 }
 
+@font-face {
+  font-family: 'Shrikhand';
+  src: url('fonts/Shrikhand-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'RobotoSlab';
+  src: url('fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -48,7 +58,8 @@ html {
 
 body {
   background-color: #E07958;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family:'Shrikhand', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a drop shadow to the text */
 }
 
 .my-style {
@@ -57,6 +68,7 @@ body {
   font-size: 8rem;
   text-align: center;
   margin-top: 11rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a drop shadow to the text */
 }
 
 main.MuiBox-root {
@@ -64,48 +76,110 @@ main.MuiBox-root {
 }
 
 .subheader {
-  margin-top: -1rem;
+  font-family:'RobotoSlab', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: light;
+  font-style: italic;
+  margin-top: -2rem;
   text-align: center;
   color: white;
   font-size: 2rem;
-}
-
-.taipy-button {
-  background-color: white;
-  
 }
 
 div.md-para {
   text-align: center;
 }
 
+.button-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container button {
+  background-color: #FF5733;
+  color: #ffffff;
+  border: none;
+  margin-bottom: -1rem;
+  padding: 15px 30px;
+  width: 20rem;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.button-container button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#button1,
+#button2 {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a drop shadow to the buttons */
+}
+
 #button1 {
+  font-family:'Shrikhand', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 100;
   margin-top: 1rem;
-  background-color: #005F73;
+  background-color: #325864;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+#button1:hover{
+  background-color: #5899ad;
+}
+
+#button1 a:active{
+  background-color: #5899ad;
+  
 }
 
 #button2 {
-  margin-top: 0rem;
-  background-color: #CA6702;
+  font-family:'Shrikhand', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 2rem;
+  background-color: #9B2227;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
-img {
-  max-width: 20%;
-  max-height: 50%;
+#button2:hover{
+  background-color: #cb3a3f;
 }
 
-#musicnotes {
+#page-container {
+  position: relative;
+}
+
+.corner-border {
   position: absolute;
-  left: 3rem;
-  bottom: 10rem;
+  width: 400px;
+  height: 400px; 
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-#boombox {
-  position: absolute;
-  right: 3rem;
-  bottom: 8rem;
+.top-right {
+  top: 0;
+  right: 0;
+  background-image: url('waves.png');
+  transform: rotate(180deg);
 }
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  background-image: url('waves.png'); 
+}
+
+.boombox {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; /* Adjust the width of the boombox image */
+  height: auto; /* Maintain aspect ratio */
+
+}
+
