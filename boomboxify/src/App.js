@@ -3,11 +3,15 @@ import './App.css';
 import { useEffect, useState } from "react"
 import SpotifyWebApi from "spotify-web-api-js"
 import Popup from "./popup.js";
+import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function App(props) {
     const setPlaylistActive = props.setPlaylistActive;
     const setChatbotActive = props.setChatbotActive;
     const setAppActive = props.setAppActive;
+
+    const navigate = useNavigate();
 
 
     const [userAge, setUserAge] = useState(0);
@@ -15,7 +19,7 @@ function App(props) {
     const [token, setToken] = useState("");
     
     const authEndpoint = "https://accounts.spotify.com/authorize";
-    const redirectUri = "http://localhost:3000";
+    const redirectUri = "http://localhost:3000/home";
     const clientId = "8e061b5b273b4471b3445424020de727";
 
     const spotify = new SpotifyWebApi();
@@ -52,6 +56,7 @@ function App(props) {
             spotify.getMe().then((user) => {
                 console.log(user);
             })
+            
         }
     })
 
@@ -69,7 +74,6 @@ function App(props) {
         <div class="App">
             <div id="page-container">
                 <div id="content-wrap">  
-                    <div>{popupToggle ? <Popup handleUserAgeInput={handleUserAgeInput}></Popup> : <p></p>}</div>
                     <div class="my-style">
                         BoomBot
                     </div>
