@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import PlaylistGenerator from './PlaylistGenerator';
+import Chatbot from './Chatbot';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+function Index() {
+    const [playlistActive, setPlaylistActive] = useState(false);
+    const [chatbotActive, setChatbotActive] = useState(false);
+    const [appActive, setAppActive] = useState(true);
+
+    let contentToRender = "";
+
+    if (appActive) contentToRender = <App setPlaylistActive={setPlaylistActive} setChatbotActive={setChatbotActive} setAppActive={setAppActive}></App>
+    if (playlistActive) contentToRender = <PlaylistGenerator setPlaylistActive={setPlaylistActive} setAppActive={setAppActive}></PlaylistGenerator>
+    if (chatbotActive) contentToRender = <Chatbot setChatbotActive={setChatbotActive} setAppActive={setAppActive}></Chatbot>
+    return (
+      <>{contentToRender}</>
+    )
+}
 root.render(
   <React.StrictMode>
-    <App />
+    <Index />
   </React.StrictMode>
 );
 

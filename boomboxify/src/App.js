@@ -5,8 +5,14 @@ import './App.css';
 import { useEffect, useState } from "react"
 import SpotifyWebApi from "spotify-web-api-js"
 import Popup from "./popup.js";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
-function App() {
+function App(props) {
+    const setPlaylistActive = props.setPlaylistActive;
+    const setChatbotActive = props.setChatbotActive;
+    const setAppActive = props.setAppActive;
+
+
     const [userAge, setUserAge] = useState(0);
     const [popupToggle, setPopupToggle] = useState(false);
     const [token, setToken] = useState("");
@@ -52,11 +58,26 @@ function App() {
         }
     })
 
+    const handleUserAgeInput = (age) => {
+        setUserAge(age);
+        setPopupToggle(false);
+        //console.log(age);
+        setAppActive(false);
+        //console.log(age);
+        setPlaylistActive(true);
+        //console.log(age);
+    }
+
+    const handleChatbotButtonClick = () => {
+        setAppActive(false);
+        setChatbotActive(true);
+    }
+
     return (
         <div class="App">
             <div id="page-container">
                 <div id="content-wrap">  
-                    <div>{popupToggle ? <Popup setUserAge={{setUserAge}}></Popup> : <p></p>}</div>
+                    <div>{popupToggle ? <Popup handleUserAgeInput={handleUserAgeInput}></Popup> : <p></p>}</div>
                     <div class="my-style">
                         BOOMBOT
                     </div>
@@ -67,7 +88,7 @@ function App() {
                         <a href={loginUrl} class="button-link">
                             <button id="button1">Get started with Spotify!</button>
                         </a>
-                        <button id="button2" onClick={() => {console.log(popupToggle ? 1 : 0)}}>Talk to our boombot!</button>
+                        <button id="button2" onClick={() => handleChatbotButtonClick()}>Talk to our boombot!</button>
                     </div>            
                 </div>
             </div>
