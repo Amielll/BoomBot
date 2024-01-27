@@ -4,7 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import PlaylistGenerator from './PlaylistGenerator';
+import { Auth0Provider } from '@auth0/auth0-react';
 import Chatbot from './Chatbot';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 function Index() {
@@ -17,8 +19,16 @@ function Index() {
     if (appActive) contentToRender = <App setPlaylistActive={setPlaylistActive} setChatbotActive={setChatbotActive} setAppActive={setAppActive}></App>
     if (playlistActive) contentToRender = <PlaylistGenerator setPlaylistActive={setPlaylistActive} setAppActive={setAppActive}></PlaylistGenerator>
     if (chatbotActive) contentToRender = <Chatbot setChatbotActive={setChatbotActive} setAppActive={setAppActive}></Chatbot>
+    //<>{contentToRender}</>
     return (
-      <>{contentToRender}</>
+        <Auth0Provider
+            domain="dev-7djeqz7vox1me0py.us.auth0.com"
+            clientId="6SgynURg2zuGgcCuYCXtOwBBC5wro44p"
+            authorizationParams={{
+            redirect_uri: window.location.origin
+        }}>
+            {contentToRender}
+        </Auth0Provider>
     )
 }
 root.render(

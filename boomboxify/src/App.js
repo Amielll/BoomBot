@@ -5,6 +5,7 @@ import './App.css';
 import { useEffect, useState } from "react"
 import SpotifyWebApi from "spotify-web-api-js"
 import Popup from "./popup.js";
+import { Auth0Provider } from '@auth0/auth0-react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 function App(props) {
