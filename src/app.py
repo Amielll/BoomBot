@@ -10,5 +10,11 @@ excitement_page = """
 My excitement level: <|{excitement}|text|>
 """
 excitement = 100
+tp_app = Gui(page=excitement_page)
 
-Gui(page=excitement_page).run(use_reloader=True, dark_mode=False, port=5001)
+if __name__ == "__main__":
+    # Development mode, Flask runs the application for debugging.
+    tp_app.run(use_reloader=True, dark_mode=False)
+else:
+    # Production mode, Azure Web Application runs the application with Gunicorn.
+    app = tp_app.run(run_server=False)
