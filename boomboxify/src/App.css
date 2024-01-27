@@ -80,6 +80,7 @@ main.MuiBox-root {
   font-weight: light;
   font-style: italic;
   margin-top: -2rem;
+  margin-bottom: 1rem;
   text-align: center;
   color: white;
   font-size: 2rem;
@@ -175,7 +176,7 @@ div.md-para {
 
 .boombox {
   position: absolute;
-  top: 75%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 300px; /* Adjust the width of the boombox image */
