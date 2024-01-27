@@ -65,11 +65,6 @@ function App(props) {
         //console.log(age);
     }
 
-    const handleChatbotButtonClick = () => {
-        setAppActive(false);
-        setChatbotActive(true);
-    }
-
     return (
         <div class="App">
             <div id="page-container">
