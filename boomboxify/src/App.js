@@ -3,6 +3,7 @@ import boombox from "./boombox.png"
 import './App.css';
 import { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js"
+import Boombox from "./Boombox";
 
 function App() {
     const authEndpoint = "https://accounts.spotify.com/authorize";
@@ -54,22 +55,19 @@ function App() {
     const [user, setUser] = useState(null);
 
     return (
+        userLoggedIn ? <Boombox /> : <>
         <div className="App">
-             {userLoggedIn ? 
-            <div>
-                Hello, {user.display_name}
-            </div> : null}
             <div className="my-style">
                 boomboxify
             </div>
             <div className='subheader'>
                 Your Retro AI Boombox, Bringing Nostalgia to the Digital Era!
             </div>
-            {!userLoggedIn ? <button id='button1'>
+            <button id='button1'>
                 <a href={loginUrl}>Get started with Spotify!</a>
-            </button> : null}
+            </button> 
 
-            {!userLoggedIn ? <button id='button2'>link to our chatbot!</button>: null}
+            <button id='button2'>Link to our chatbot!</button>: null
             <div>
             
            
@@ -78,6 +76,8 @@ function App() {
             <img src={musicnotes} id="musicnotes"></img>
             <img src={boombox} id="boombox"></img>
         </div>
+        </>
+        
     );
 }
 
