@@ -11,4 +11,4 @@ My excitement level: <|{excitement}|text|>
 """
 excitement = 100
 
-Gui(page=excitement_page).run(use_reloader=True, dark_mode=False)
+Gui(page=excitement_page).run(use_reloader=True, dark_mode=False, port=5001)
