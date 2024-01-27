@@ -24,8 +24,10 @@ jobs:
           
       - name: Install dependencies and build React app
         run: |
+          cd frontend
           npm install
           npm run build
+          cd ..
           
       - name: Set up Python version
         uses: actions/setup-python@v1
