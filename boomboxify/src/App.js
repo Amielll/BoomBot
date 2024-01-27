@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import musicnotes from "./musical_notes.png"
+import boombox from "./boombox.png"
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const authEndpoint
+    const handleSpotifyOnclick = () => {
+
+    }
+
+    return (
+        <div className="App">
+            <div className="my-style">
+                boomboxify
+            </div>
+            <div className='subheader'>
+                Your Retro AI Boombox, Bringing Nostalgia to the Digital Era!
+            </div>
+            <button id='button1' onClick={() => handleSpotifyOnclick()}>
+                <a href={loginUrl}>Get started with Spotify!</a>
+            </button>
+            <button id='button2' onClick={() => handleSpotifyOnclick()}>link to our chatbot!</button>
+            <img src={musicnotes} id="musicnotes"></img>
+            <img src={boombox} id="boombox"></img>
+        </div>
+    );
 }
 
 export default App;

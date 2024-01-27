@@ -36,3 +36,76 @@
     transform: rotate(360deg);
   }
 }
+
+:root {
+  background-color: #E07958;
+}
+
+html {
+  background-color: #E07958;
+  font-size: 1rem;
+}
+
+body {
+  background-color: #E07958;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.my-style {
+  background-color: #E07958;
+  color: #E9D7A5;
+  font-size: 8rem;
+  text-align: center;
+  margin-top: 11rem;
+}
+
+main.MuiBox-root {
+  background-color: #E07958;
+}
+
+.subheader {
+  margin-top: -1rem;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.taipy-button {
+  background-color: white;
+  
+}
+
+div.md-para {
+  text-align: center;
+}
+
+#button1 {
+  margin-top: 1rem;
+  background-color: #005F73;
+  color: white;
+  font-size: 1.2rem;
+}
+
+#button2 {
+  margin-top: 0rem;
+  background-color: #CA6702;
+  color: white;
+  font-size: 1.2rem;
+}
+
+img {
+  max-width: 20%;
+  max-height: 50%;
+}
+
+#musicnotes {
+  position: absolute;
+  left: 3rem;
+  bottom: 10rem;
+}
+
+#boombox {
+  position: absolute;
+  right: 3rem;
+  bottom: 8rem;
+}
