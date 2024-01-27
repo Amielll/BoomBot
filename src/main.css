@@ -1,0 +1,29 @@
+:root {
+  background-color: #E07958;
+}
+
+html {
+  background-color: #E07958;
+  font-size: 1rem;
+}
+
+body {
+  background-color: #E07958;
+}
+
+.my-style {
+  background-color: #E07958;
+  color: #E9D7A5;
+  font-size: 10rem;
+  text-align: center;
+  margin-top: 10rem;
+}
+
+main.MuiBox {
+  background-color: #E07958;
+}
+
+.header {
+  color: blue;
+}
+
