@@ -98,9 +98,9 @@ div.md-para {
 
 .button-container{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
 }
 
 .button-container button {
@@ -128,33 +128,30 @@ div.md-para {
   font-family:'Shrikhand', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 100;
   margin-top: 1rem;
-  margin-right: 0.5rem;
-  background-color: #325864;
+  background-color: #507E8D;
   color: white;
   font-size: 1.4rem;
   text-decoration: none;
-  width: 25rem;
 }
 
 #button1:hover{
-  background-color: #5899ad;
+  background-color: #96d1e4;
 }
 
 #button1 a:active{
-  background-color: #5899ad;
-  
+  background-color: #96d1e4;
 }
 
 #button2 {
   font-family:'Shrikhand', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  margin-top: 1rem;
-  background-color: #9B2227;
+  margin-top: 2rem;
+  background-color: #6B7694;
   color: white;
   font-size: 1.4rem;
 }
 
 #button2:hover{
-  background-color: #cb3a3f;
+  background-color: #a0add1;
 }
 
 #page-container {
@@ -183,15 +180,15 @@ div.md-para {
 }
 
 .image-container {
-  display: flex; /* Ensure the image is displayed as a block element */
-  align-items: center;
-  justify-content: center;
   text-align: center; /* Center the image horizontally */
-  margin-top: 4rem;
 }
 
 
 .boombox {
   max-width: max(15vw, 290px); /* Ensure the image doesn't exceed its container */
   height: auto; /* Maintain aspect ratio */
+  display: block; /* Ensure the image is displayed as a block element */
+  margin: 0 auto; /* Center the image horizontally within its container */
+  margin-top: 80px;
 }
+
