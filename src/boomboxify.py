@@ -14,6 +14,13 @@ Your Retro AI Boombox, Bringing Nostalgia to the Digital Era!
 
 <|link to our chatbot!|button|id=button2|>
 
+<|{musical_notes}|image|id=musicnotes|>
+
+<|{boombox}|image|id=boombox|>
+
 """
+
+musical_notes = './assets/musical_notes.png'
+boombox = './assets/boombox.png'
 
 Gui(page=main_page, css_file='./main.css').run(use_reloader=True, dark_mode=False)
