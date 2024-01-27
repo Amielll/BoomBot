@@ -3,7 +3,7 @@ import boombox from "./boombox.png"
 import './App.css';
 
 function App() {
-    const authEndpoint
+    //const authEndpoint
     const handleSpotifyOnclick = () => {
 
     }
