@@ -1,5 +1,6 @@
 import musicnotes from "./musical_notes.png"
 import boombox from "./boombox.png"
+import waves from "./waves.png"
 import './App.css';
 import { useEffect } from "react";
 import SpotifyWebApi from "spotify-web-api-js"
@@ -48,20 +49,31 @@ function App() {
     })
 
     return (
-        <div className="App">
-            <div className="my-style">
-                boomboxify
+        <div class="App">
+            <div id="page-container">
+                <div id="content-wrap">
+                    <div class="my-style">
+                        BOOMBOT
+                    </div>
+
+                    <div class='subheader'>
+                        Your Retro AI Boombox, Bringing Nostalgia to the Digital Era!
+                    </div>
+
+                    <div class="button-container">
+                        <a href={loginUrl} class="button-link">
+                            <button id="button1">Get started with Spotify!</button>
+                        </a>
+                        <button id="button2">Talk to our boombot!</button>
+                    </div>
+                    
+                </div>
             </div>
-            <div className='subheader'>
-                Your Retro AI Boombox, Bringing Nostalgia to the Digital Era!
-            </div>
-            <button id='button1'>
-                <a href={loginUrl}>Get started with Spotify!</a>
-            </button>
-            <button id='button2'>link to our chatbot!</button>
-            <img src={musicnotes} id="musicnotes"></img>
-            <img src={boombox} id="boombox"></img>
+            <div class="corner-border top-right"></div>
+            <div class="corner-border bottom-left"></div>
+            <img src={boombox} alt="boombox" class="boombox"/>
         </div>
+
     );
 }
 
