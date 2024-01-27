@@ -73,7 +73,7 @@ function App() {
             </div>
             <div class="corner-border top-right"></div>
             <div class="corner-border bottom-left"></div>
-            <img src={boombox} alt="boombox" class="boombox"/>
+            <div class="image-container"><img src={boombox} alt="boombox" class="boombox"/></div>
         </div>
 
     );
