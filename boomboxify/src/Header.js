@@ -14,9 +14,9 @@ export default function Header(props) { // TODO: add addresses
   }
   return <nav>
     <div className="header-elem-container">
-    <div className={`header-elem ${h}`}><a href='#'>Home</a></div>
-    <div className={`header-elem ${c}`}><a href='#'>Chat</a></div>
-    <div className={`header-elem ${p}`}><a href='#'>Playlist</a></div>
+    <div className={`header-elem ${h}`}><a href='/home'>Home</a></div>
+    <div className={`header-elem ${c}`}><a href='/chat'>Chat</a></div>
+    <div className={`header-elem ${p}`}><a href='/playlist'>Playlist</a></div>
     </div>
   </nav>
 }

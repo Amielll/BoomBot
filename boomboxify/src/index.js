@@ -2,23 +2,24 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Home from './Home';
 import reportWebVitals from './reportWebVitals';
 import PlaylistGenerator from './PlaylistGenerator';
 import Chatbot from './Chatbot';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 function Index() {
-    const [playlistActive, setPlaylistActive] = useState(false);
-    const [chatbotActive, setChatbotActive] = useState(false);
-    const [appActive, setAppActive] = useState(true);
-
-    let contentToRender = "";
-
-    if (appActive) contentToRender = <App setPlaylistActive={setPlaylistActive} setChatbotActive={setChatbotActive} setAppActive={setAppActive}></App>
-    if (playlistActive) contentToRender = <PlaylistGenerator setPlaylistActive={setPlaylistActive} setAppActive={setAppActive}></PlaylistGenerator>
-    if (chatbotActive) contentToRender = <Chatbot setChatbotActive={setChatbotActive} setAppActive={setAppActive}></Chatbot>
     return (
-      <>{contentToRender}</>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App/>}/>
+        <Route path="home" element={<Home />} />
+        <Route path="playlist" element={<PlaylistGenerator />} />
+        <Route path="chat" element={<Chatbot />} />
+      </Routes>
+      </BrowserRouter>
     )
 }
 root.render(
