@@ -1,20 +1,21 @@
-import musicnotes from "./musical_notes.png"
-import boombox from "./boombox.png"
-import waves from "./waves.png"
+//import musicnotes from "./assets/musical_notes.png"
+import boombox from "./assets/boombox.png"
+//import waves from "./assets/waves.png"
 import './App.css';
 import { useEffect, useState } from "react"
 import SpotifyWebApi from "spotify-web-api-js"
 import Popup from "./popup.js";
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
+//import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 
 function App(props) {
     const setPlaylistActive = props.setPlaylistActive;
     const setChatbotActive = props.setChatbotActive;
     const setAppActive = props.setAppActive;
 
-
+    // eslint-disable-next-line
     const [userAge, setUserAge] = useState(0);
     const [popupToggle, setPopupToggle] = useState(false);
+    // eslint-disable-next-line
     const [token, setToken] = useState("");
     
     const authEndpoint = "https://accounts.spotify.com/authorize";
@@ -44,6 +45,7 @@ function App(props) {
             }, {})
     }
 
+    // eslint-disable-next-line
     useEffect(() => {
         const TOKEN = getTokenFromUrl().access_token;
         window.location.hash = "";
