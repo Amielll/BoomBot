@@ -7,7 +7,8 @@ import boombox from './boombox.png';
 import waves from "./waves.png"
 
 
-const Dictaphone = () => {
+
+const Dictaphone = (props) => {
     const {
         transcript,
         listening,
@@ -15,27 +16,34 @@ const Dictaphone = () => {
         browserSupportsSpeechRecognition
     } = useSpeechRecognition();
 
+    const mode = props.mode;
+    const content = props.content;
+    const setContent = props.setContent;
+    const promptContent = props.promptContent;
+
+    const handleSubmit2 = () => {
+        setContent(content + transcript + "\n");
+        resetTranscript();
+    }
+
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
     }
 
     return (
         <div>
-            <div className='prompt-container'>
-                <form>
-                    <input className='prompt-text' value={transcript} placeholder='Your voice prompt will show here.' />
-                    <button>Submit</button>
-
-                </form>
-            </div>
+            {mode === "audio" ?
+                <div className='prompt-container'>
+                        <input className='prompt-text' value={transcript} placeholder='Your voice prompt will show here.' />
+                        <button onClick={handleSubmit2}>Submit</button>
+                </div> : null
+            }
             <div className='button-container2'>
                 <p className='microphone'>Microphone: {listening ? 'on' : 'off'}</p>
                 <button className='button-elem2' onClick={SpeechRecognition.startListening}>Start</button>
                 <button className='button-elem2' onClick={SpeechRecognition.stopListening}>Stop</button>
                 <button className='button-elem2' onClick={resetTranscript}>Reset</button>
-
             </div>
-
         </div>
     );
 };
@@ -46,10 +54,13 @@ function Chatbot(props) {
     const setAppActive = props.setAppActive;
     const [content, setContent] = React.useState("");
     const [promptContent, setPromptContent] = React.useState("");
+    const [mode, setMode] = React.useState("text");
+
 
     function handleSubmit(event) {
         event.preventDefault();
-        setContent(content + promptContent);
+        setContent(content + promptContent + "\n");
+        setPromptContent("");
     }
 
     const text = "In this guide, we show how to use the Chat endpoint to create a simple Chatbot that, given an input query, responds to it considering the previous context.";
@@ -80,14 +91,23 @@ function Chatbot(props) {
                 </div>
                 <div>
                     <div>
-                        <div className='rectangle'>
+                        <div className='rectangle display-linebreak'>
                             {content}
                         </div>
-                        <form method='post' onSubmit={handleSubmit}>
-                            <input className='prompt-text' type='text'  placeholder='Enter your prompt here.' onChange={(e) => setPromptContent(e.target.value)}/>
-                            <input type='submit'/>
-                        </form>
-                        <Dictaphone></Dictaphone>
+                        {mode === 'text' ?
+                            <form method='post' onSubmit={handleSubmit}>
+                                <input className='prompt-text' value={promptContent} type='text' placeholder='Enter your prompt here.' onChange={(e) => setPromptContent(e.target.value)} />
+                            </form>
+                            : null}
+
+                        <Dictaphone mode={mode} handleSubmit={handleSubmit} content={content} setContent={setContent}></Dictaphone>
+                        <button onClick={() => {
+                            if (mode === 'text') {
+                                setMode('audio');
+                            } else {
+                                setMode('text');
+                            }
+                        }}>Change mode</button>
                     </div>
 
 
