@@ -7,6 +7,7 @@ import boombox from './boombox.png';
 import waves from "./waves.png"
 import axios from 'axios';
 import mic from "./mic.png";
+import textt from "./text.png";
 
 
 const Dictaphone = (props) => {
@@ -66,6 +67,8 @@ function Chatbot(props) {
     const [promptContent, setPromptContent] = React.useState("");
     const [mode, setMode] = React.useState("text");
 
+    const [imgsrc, setImgsrc] = React.useState(mic);
+
 
     function handleSubmit() {
         setPromptContent("")
@@ -119,12 +122,14 @@ function Chatbot(props) {
                         <Dictaphone mode={mode} handleSubmit={handleSubmit} content={content} setContent={setContent}></Dictaphone>
                         <button className='change-mode' onClick={() => {
                             if (mode === 'text') {
+                                setImgsrc(mic)
                                 setMode('audio');
                             } else {
+                                setImgsrc(textt)
                                 setMode('text');
                             }
                         }}>
-                            <img src={mic}/>
+                            <img src={imgsrc}/>
                         </button>
                     
                     </div>
