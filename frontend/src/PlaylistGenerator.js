@@ -34,9 +34,9 @@ function PlaylistGenerator(props) {
                             });
 
                             const data = await response.json().then((data) => {
-                                const songs = data.songs;
+                                const songs = data;
                                 const songList = [];
-                                for (var i = 0; i < 10; i++) {
+                                for (var i = 0; i < songs.length; i++) {
                                     songList.push(songs[i].title + " - " + songs[i].artists);
                                 }
                                 setPlaylist(songList);
