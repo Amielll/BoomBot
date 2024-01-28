@@ -23,7 +23,7 @@ def get_music_suggestions():
 @app.route('/api/chat', methods=['POST'])
 def get_cohere_chat():
     userid = request.json['userid']
-    prompt = request.json['userid']
+    prompt = request.json['prompt']
     return cohere_chat.chat(userid, prompt)
 
 
