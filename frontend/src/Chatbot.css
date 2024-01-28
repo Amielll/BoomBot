@@ -176,5 +176,13 @@ button {
 
 .microphone {
   display: inline-block;
+  font-family: 'RobotoSlab', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.5rem;
 }
 
+.change-mode {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #f3dd78;
+}

@@ -107,7 +107,7 @@ function Chatbot(props) {
                             : null}
 
                         <Dictaphone mode={mode} handleSubmit={handleSubmit} content={content} setContent={setContent}></Dictaphone>
-                        <button onClick={() => {
+                        <button className='change-mode' onClick={() => {
                             if (mode === 'text') {
                                 setMode('audio');
                             } else {
