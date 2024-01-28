@@ -26,6 +26,13 @@ const Dictaphone = (props) => {
             return;
         }
         setContent( content + 'You: ' + transcript + "\n");
+        
+        axios.post("http://127.0.0.1:5000/api/chat", {"userid": localStorage.getItem("cookie"), "prompt": transcript}).then(response => {
+            setContent( content + 'You: ' + transcript + '\n' + '\n' + 'BoomBot: ' +response.data + '\n' + '\n');
+            
+        }).catch(error => {
+            console.error(error);
+        })
         resetTranscript();
     }
 
