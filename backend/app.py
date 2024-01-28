@@ -4,15 +4,14 @@ import cohere_chat
 from flask_cors import CORS
 
 app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
-#CORS(app)
+CORS(app)
 
 @app.route("/")
 @app.route("/home")
 @app.route("/playlist")
 @app.route("/chat")
 def serve_react_app():
-    return "Hi!"
-    #return app.send_static_file("index.html")
+    return app.send_static_file("index.html")
 
 
 @app.route("/api/suggestions")
