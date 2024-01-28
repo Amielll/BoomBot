@@ -6,7 +6,7 @@ import './Chatbot.css';
 import boombox from './boombox.png';
 import waves from "./waves.png"
 import axios from 'axios';
-
+import mic from "./mic.png";
 
 
 const Dictaphone = (props) => {
@@ -116,7 +116,9 @@ function Chatbot(props) {
                             } else {
                                 setMode('text');
                             }
-                        }}>Change mode</button>
+                        }}>
+                            <img src={mic}/>
+                        </button>
                     
                     </div>
 

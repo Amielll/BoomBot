@@ -181,8 +181,14 @@ button {
 }
 
 .change-mode {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  background-color: #f3dd78;
+  background-color: transparent;
+  position: fixed;
+  bottom: 7rem;
+  right: 18rem;
+  width: 50px;
+  color:transparent;
+}
+
+.change-mode img{
+  height:40px;
 }
