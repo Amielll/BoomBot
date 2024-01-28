@@ -21,7 +21,13 @@ const Dictaphone = () => {
 
     return (
         <div>
+            <div className='prompt-container'>
+                <form>
+                    <input className='prompt-text' value={transcript} placeholder='Your voice prompt will show here.' />
+                    <button>Submit</button>
 
+                </form>
+            </div>
             <div className='button-container2'>
                 <p className='microphone'>Microphone: {listening ? 'on' : 'off'}</p>
                 <button className='button-elem2' onClick={SpeechRecognition.startListening}>Start</button>
@@ -29,7 +35,7 @@ const Dictaphone = () => {
                 <button className='button-elem2' onClick={resetTranscript}>Reset</button>
 
             </div>
-            <p>{transcript}</p>
+
         </div>
     );
 };
@@ -38,6 +44,13 @@ const Dictaphone = () => {
 function Chatbot(props) {
     const setChatbotActive = props.setChatbotActive;
     const setAppActive = props.setAppActive;
+    const [content, setContent] = React.useState("");
+    const [promptContent, setPromptContent] = React.useState("");
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        setContent(content + promptContent);
+    }
 
     const text = "In this guide, we show how to use the Chat endpoint to create a simple Chatbot that, given an input query, responds to it considering the previous context.";
 
@@ -54,7 +67,7 @@ function Chatbot(props) {
 
                 <div className='first-part'>
                     <div className='header-container'>
-                        <div className='intro' style={{color: 'white'}}>Chat With</div>
+                        <div className='intro' style={{ color: 'white' }}>Chat With</div>
                         <div className='intro'>BoomBot!</div>
                     </div>
                     <div class="image-container"><img src={boombox} alt="boombox" className="boombox chat" /></div>
@@ -63,26 +76,22 @@ function Chatbot(props) {
                         <div className='subheader-elem'>(P. S., I can also give recommendations!)</div>
                     </div>
 
-                    
+
                 </div>
                 <div>
                     <div>
-                    <div className='rectangle'>
-                    </div>
-                    <div className='prompt-container'>
-                        <form>
-                        <input className='prompt-text' placeholder='Enter your prompt here.' />
-                        <button >Submit</button>
-
+                        <div className='rectangle'>
+                            {content}
+                        </div>
+                        <form method='post' onSubmit={handleSubmit}>
+                            <input className='prompt-text' type='text'  placeholder='Enter your prompt here.' onChange={(e) => setPromptContent(e.target.value)}/>
+                            <input type='submit'/>
                         </form>
-                    </div>
-                    </div>
-                    
-
-                    {/* <Speech text={text} />, */}
-                    <div className='dict-container'>
                         <Dictaphone></Dictaphone>
                     </div>
+
+
+                    {/* <Speech text={text} />, */}
                 </div>
 
 

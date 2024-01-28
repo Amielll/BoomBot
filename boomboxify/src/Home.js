@@ -5,10 +5,10 @@ export default function Home() {
 
   return <>
    <Header focus="home"></Header>
-            <div className='header-container'>
-            <p className='header'>Hi, I'm {' '} </p> <p className='header' style={{color: '#E7D7AB', marginLeft: '-3rem'}}> BoomBot!</p>
+            <div className='header-container1'>
+            <p className='header'>Hi, I'm </p> <p className='header' style={{color: '#E7D7AB', marginLeft: '1rem'}}> BoomBot!</p>
             </div>
-            <div className='subheader-container'>
+            <div className='subheader-container' style={{marginTop: "-4rem"}}>
                 <div className='subheader-elem'>I’m an AI BoomBox powered with Cohere!</div>
                 <div className='subheader-elem'>Here to chat with you about music, and generate nostalgic Spotify playlists according to your tastes!</div>
             </div>

@@ -1,14 +1,16 @@
-/* .header {
+.header {
   color: white;
   font-size: 5rem;
   text-align: center;
   margin-top: 2rem;
 }
 
-.header-container {
+.header-container1 {
   display: flex;
   justify-content: center;
 }
+
+/* 
 
 div {
   white-space: pre-wrap;
@@ -111,6 +113,10 @@ color: #E9D7A5;} */
   background-color: #f7f7f7;
   border-radius: 1rem;
   margin-top: 2em;
+  color: #000000;
+  font-family: 'RobotoSlab', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 0.5rem;
+  font-size: 1.5rem;
 }
 
 .prompt-container {
@@ -132,7 +138,7 @@ button {
   border-radius: 20px;
   font-family: 'RobotoSlab', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 1.4rem;
-  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .prompt-text {
