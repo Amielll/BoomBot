@@ -1,5 +1,6 @@
 import Header from "./Header"
 import boombox from './boombox.png';
+import {useEffect} from "react";
 
 export default function Home() {
 
@@ -19,7 +20,7 @@ export default function Home() {
                 <input className='prompt-text' placeholder='Enter your prompt here.'/>
             </div> */}
 
-            <div class="corner-border top-right"></div>
-            <div class="corner-border bottom-left"></div>
-  </>
+        <div class="corner-border top-right"></div>
+        <div class="corner-border bottom-left"></div>
+    </>
 }
