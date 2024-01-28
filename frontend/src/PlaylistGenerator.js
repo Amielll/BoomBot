@@ -9,9 +9,10 @@ function PlaylistGenerator(props) {
     return (
         <div>
             <Header focus="playlist">
-            <div class="gen-title">BoomBot Nostalgia Blast</div>
             </Header>
-            <div class="gen-title">BoomBot Nostalgia Blast</div>
+            <div className="gen-title">
+                <span style={{color: '#E9D7A5'}}>BoomBot</span> Nostalgia Blast
+            </div>
             <div class="gen-desc-container">
                 <div class="gen-desc">
                     Looking for some older songs that fit your music taste? 
@@ -21,7 +22,7 @@ function PlaylistGenerator(props) {
             </div>
             
             <div class="gen-button">
-                <button onClick={() => {
+                <button class="generate" onClick={() => {
                     
                 }}>
                     Generate My Playlist!
@@ -30,6 +31,8 @@ function PlaylistGenerator(props) {
             <div class="img-container">
                 <img src={cassette} alt="cassette" class="cassette"/>
             </div>
+            <div class="corner-border top-right"></div>
+            <div class="corner-border bottom-left"></div>
         </div>
     )
 
