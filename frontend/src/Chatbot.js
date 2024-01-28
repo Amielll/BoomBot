@@ -17,6 +17,14 @@ const Dictaphone = (props) => {
     } = useSpeechRecognition();
 
     const mode = props.mode;
+    const content = props.content;
+    const setContent = props.setContent;
+    const promptContent = props.promptContent;
+
+    const handleSubmit2 = () => {
+        setContent(content + transcript + "\n");
+        resetTranscript();
+    }
 
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
@@ -26,10 +34,8 @@ const Dictaphone = (props) => {
         <div>
             {mode === "audio" ?
                 <div className='prompt-container'>
-                    <form>
                         <input className='prompt-text' value={transcript} placeholder='Your voice prompt will show here.' />
-                        <button>Submit</button>
-                    </form>
+                        <button onClick={handleSubmit2}>Submit</button>
                 </div> : null
             }
             <div className='button-container2'>
@@ -94,7 +100,7 @@ function Chatbot(props) {
                             </form>
                             : null}
 
-                        <Dictaphone mode={mode}></Dictaphone>
+                        <Dictaphone mode={mode} handleSubmit={handleSubmit} content={content} setContent={setContent}></Dictaphone>
                         <button onClick={() => {
                             if (mode === 'text') {
                                 setMode('audio');
