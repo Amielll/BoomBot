@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Shrikhand';
+    src: url('fonts/Shrikhand-Regular.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'RobotoSlab';
+    src: url('fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+  }
+
+.header {
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  div {
+    white-space: pre-wrap;
+  }
+
+.gen-title{
+    font-size: 5rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-shadow: 0 0 0.5rem #000;
+}
+
+.gen-desc-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%; /* Set a specific width for centering */
+    text-align: center;
+}
+
+.gen-desc {
+    font-family: 'RobotoSlab', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 1rem;
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: -3rem;
+}

@@ -8,13 +8,18 @@ function PlaylistGenerator(props) {
 
     return (
         <div>
-            <Header focus="playlist"></Header>
+            <Header focus="playlist">
             <div class="gen-title">BoomBot Nostalgia Blast</div>
-            <div class="gen-desc">
-                Looking for some older songs that fit your music taste? 
-                BoomBot is here to recommend you 5 nostalgic tunes, and give you a 
-                fitting playlist name and description right in your Spotify Library.
+            </Header>
+            <div class="gen-title">BoomBot Nostalgia Blast</div>
+            <div class="gen-desc-container">
+                <div class="gen-desc">
+                    Looking for some older songs that fit your music taste? 
+                    BoomBot is here to recommend you 5 nostalgic tunes, and give you a 
+                    fitting playlist name and description right in your Spotify Library.
+                </div>
             </div>
+            
             <div class="gen-button">
                 <button onClick={() => {
                     

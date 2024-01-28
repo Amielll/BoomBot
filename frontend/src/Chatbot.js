@@ -7,7 +7,6 @@ import boombox from './boombox.png';
 import waves from "./waves.png"
 
 
-
 const Dictaphone = () => {
     const {
         transcript,
@@ -15,22 +14,28 @@ const Dictaphone = () => {
         resetTranscript,
         browserSupportsSpeechRecognition
     } = useSpeechRecognition();
-  
+
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
     }
-  
+
     return (
         <div>
-            
+            <div className='prompt-container'>
+                <form>
+                    <input className='prompt-text' value={transcript} placeholder='Your voice prompt will show here.' />
+                    <button>Submit</button>
+
+                </form>
+            </div>
             <div className='button-container2'>
-            <p className='microphone'>Microphone: {listening ? 'on' : 'off'}</p>
-            <button className='button-elem2' onClick={SpeechRecognition.startListening}>Start</button>
-            <button className='button-elem2' onClick={SpeechRecognition.stopListening}>Stop</button>
-            <button className='button-elem2' onClick={resetTranscript}>Reset</button>
+                <p className='microphone'>Microphone: {listening ? 'on' : 'off'}</p>
+                <button className='button-elem2' onClick={SpeechRecognition.startListening}>Start</button>
+                <button className='button-elem2' onClick={SpeechRecognition.stopListening}>Stop</button>
+                <button className='button-elem2' onClick={resetTranscript}>Reset</button>
 
             </div>
-            <p>{transcript}</p>
+
         </div>
     );
 };
@@ -39,6 +44,13 @@ const Dictaphone = () => {
 function Chatbot(props) {
     const setChatbotActive = props.setChatbotActive;
     const setAppActive = props.setAppActive;
+    const [content, setContent] = React.useState("");
+    const [promptContent, setPromptContent] = React.useState("");
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        setContent(content + promptContent);
+    }
 
     const text = "In this guide, we show how to use the Chat endpoint to create a simple Chatbot that, given an input query, responds to it considering the previous context.";
 
@@ -46,34 +58,49 @@ function Chatbot(props) {
         setChatbotActive(false);
         setAppActive(true);
     }
-    <div class="image-container"><img src={boombox} alt="boombox" class="boombox"/></div>
+    <div class="image-container"><img src={boombox} alt="boombox" class="boombox" /></div>
 
     return (
-        <div>
+        <>
             <Header focus="chatbot"></Header>
-            <div className='header-container'>
-            <p className='header'>Hi, I'm {' '} </p> <p className='header' style={{color: '#E7D7AB', marginLeft: '-3rem'}}> BoomBot!</p>
-            </div>
-            <div className='subheader-container'>
-                <div className='subheader-elem'>Ask me anything about music! </div>
-                <div className='subheader-elem'>(P. S., I can also give recommendations!)</div>
-            </div>
+            <div className='grid2x2'>
 
-            <div class="image-container"><img src={boombox} alt="boombox" className="boombox chat"/></div>
+                <div className='first-part'>
+                    <div className='header-container'>
+                        <div className='intro' style={{ color: 'white' }}>Chat With</div>
+                        <div className='intro'>BoomBot!</div>
+                    </div>
+                    <div class="image-container"><img src={boombox} alt="boombox" className="boombox chat" /></div>
+                    <div className='subheader-container'>
+                        <div className='subheader-elem'>Ask me anything about music! </div>
+                        <div className='subheader-elem'>(P. S., I can also give recommendations!)</div>
+                    </div>
 
-            <div className='prompt-container'>
-                <input className='prompt-text' placeholder='Enter your prompt here.'/>
-            </div>
 
-            {/* <Speech text={text} />, */}
-            <div className='dict-container'>
-            <Dictaphone></Dictaphone>
-            <button onClick={() => handleBackButtonClick()}>You are at Chatbot page. click to back to main page</button>
+                </div>
+                <div>
+                    <div>
+                        <div className='rectangle'>
+                            {content}
+                        </div>
+                        <form method='post' onSubmit={handleSubmit}>
+                            <input className='prompt-text' type='text'  placeholder='Enter your prompt here.' onChange={(e) => setPromptContent(e.target.value)}/>
+                            <input type='submit'/>
+                        </form>
+                        <Dictaphone></Dictaphone>
+                    </div>
+
+
+                    {/* <Speech text={text} />, */}
+                </div>
+
+
+
+
+
+
             </div>
-            
-            <div class="corner-border top-right"></div>
-            <div class="corner-border bottom-left"></div>
-        </div>
+        </>
     )
 }
 

@@ -1,8 +1,11 @@
 
 
 export default function Chat() {
-  return <div class="App">
+  return <div className="App">
   <div id="page-container">
+
+
+
       <div id="content-wrap">  
           <div>{popupToggle ? <Popup handleUserAgeInput={handleUserAgeInput}></Popup> : <p></p>}</div>
           <div class="my-style">
