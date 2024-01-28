@@ -45,7 +45,7 @@ def getNostalgicSuggestions(token):
                 "title": track["name"],
                 "artists": ",".join(track["artists"])
             }
-            final_track_list.append(track)
+            final_track_list.append(track_entry)
 
     # Suggest a max of 5
     if len(final_track_list) > 10:
