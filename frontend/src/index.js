@@ -15,9 +15,9 @@ function Index() {
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<App/>}/>
-        <Route path="home" element={<Home />} />
-        <Route path="playlist" element={<PlaylistGenerator />} />
-        <Route path="chat" element={<Chatbot />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/playlist" element={<PlaylistGenerator />} />
+        <Route path="/chat" element={<Chatbot />} />
       </Routes>
       </BrowserRouter>
     )
@@ -25,7 +25,8 @@ function Index() {
 root.render(
   <React.StrictMode>
     <Index />
-  </React.StrictMode>
+  </React.StrictMode>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
