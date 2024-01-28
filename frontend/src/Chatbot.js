@@ -122,10 +122,11 @@ function Chatbot(props) {
                         <Dictaphone mode={mode} handleSubmit={handleSubmit} content={content} setContent={setContent}></Dictaphone>
                         <button className='change-mode' onClick={() => {
                             if (mode === 'text') {
-                                setImgsrc(mic)
+                                setImgsrc(textt)
                                 setMode('audio');
                             } else {
-                                setImgsrc(textt)
+                                
+                                setImgsrc(mic)
                                 setMode('text');
                             }
                         }}>
