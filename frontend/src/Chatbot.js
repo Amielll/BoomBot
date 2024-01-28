@@ -53,7 +53,7 @@ function Chatbot(props) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        setContent(content + promptContent);
+        setContent(content + promptContent + "\n");
         setPromptContent("");
     }
 
@@ -85,13 +85,12 @@ function Chatbot(props) {
                 </div>
                 <div>
                     <div>
-                        <div className='rectangle'>
+                        <div className='rectangle display-linebreak'>
                             {content}
                         </div>
                         {mode === 'text' ?
                             <form method='post' onSubmit={handleSubmit}>
                                 <input className='prompt-text' value={promptContent} type='text' placeholder='Enter your prompt here.' onChange={(e) => setPromptContent(e.target.value)} />
-                                <input type='submit' />
                             </form>
                             : null}
 

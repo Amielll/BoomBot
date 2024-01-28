@@ -157,3 +157,8 @@ button {
   font-family: 'RobotoSlab', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
+
+.display-linebreak {
+  white-space: pre-line;
+}
+
