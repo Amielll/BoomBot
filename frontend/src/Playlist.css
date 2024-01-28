@@ -25,6 +25,8 @@
   }
 
 .gen-title{
+    margin-top: 5rem;
+    padding: 1rem;
     font-size: 5rem;
     font-weight: 600;
     color: #fff;
@@ -44,9 +46,59 @@
 
 .gen-desc {
     font-family: 'RobotoSlab', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     text-align: center;
     color: white;
     font-size: 1.8rem;
-    margin-bottom: -3rem;
+    margin-bottom: 1rem;
+}
+
+.img-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%; /* Set a specific width for centering */
+  text-align: center;
+}
+
+.img-container img {
+  width: 500px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.gen-button{
+  text-align: center;
+  position: relative;
+}
+
+button{
+  position: absolute;
+  top: calc(100% + 48px); /* Move the button down by 20 pixels relative to the bottom of its container */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-45%); /* Adjust to center horizontally */
+  width: 17%;
+  height: 35px;
+  border-radius: 1px;
+}
+
+.generate{
+  font-family: "shrikhand";
+  font-size: 20px;
+}
+
+.generate:hover{
+  background-color: #96d1e4;
+}
+
+.top-right {
+  top: 4rem;
+  right: 0;
+  background-image: url('waves.png');
+  transform: rotate(180deg);
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  background-image: url('waves.png'); 
 }
