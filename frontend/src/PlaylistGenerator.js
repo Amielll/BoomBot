@@ -14,7 +14,12 @@ function PlaylistGenerator(props) {
                 Looking for some older songs that fit your music taste?
                 BoomBot is here to recommend you 5 nostalgic tunes, and give you a
                 fitting playlist name and description right in your Spotify Library.
-            </div>
+
+            <Header focus="playlist">
+            </Header>
+            <div className="gen-title">
+                <span style={{color: '#E9D7A5'}}>BoomBot</span> Nostalgia Blast
+            
             <div class="gen-button">
                 <button onClick={async () => {
                     try {
@@ -31,6 +36,8 @@ function PlaylistGenerator(props) {
                     } catch (error) {
                         console.error('Failed to get suggestions:', error);
                     }
+                <button class="generate" onClick={() => {
+                    
                 }}>
                     Generate My Playlist!
                 </button>
@@ -38,6 +45,8 @@ function PlaylistGenerator(props) {
             <div class="img-container">
                 <img src={cassette} alt="cassette" class="cassette"/>
             </div>
+            <div class="corner-border top-right"></div>
+            <div class="corner-border bottom-left"></div>
         </div>
     )
 

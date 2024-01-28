@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'Shrikhand';
+    src: url('fonts/Shrikhand-Regular.ttf') format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'RobotoSlab';
+    src: url('fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype');
+  }
+
+.header {
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  div {
+    white-space: pre-wrap;
+  }
+
+.gen-title{
+    margin-top: 5rem;
+    padding: 1rem;
+    font-size: 4rem;
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-shadow: 0 0 0.5rem #000;
+}
+
+.gen-desc-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%; /* Set a specific width for centering */
+    text-align: center;
+}
+
+.gen-desc {
+    font-family: 'RobotoSlab', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0.5rem;
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.img-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%; /* Set a specific width for centering */
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.img-container img {
+  width: 500px; /* Adjust width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.gen-button{
+  text-align: center;
+  position: relative;
+}
+
+.generate{
+  position: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 17%;
+  height: 50px;
+  border-radius: 1px;
+  border-radius: 12px;
+}
+
+.generate{
+  font-family: "shrikhand";
+  font-size: 18px;
+}
+
+.generate:hover{
+  background-color: #96d1e4;
+}
+
+.top-right {
+  top: 4rem;
+  right: 0;
+  background-image: url('waves.png');
+  transform: rotate(180deg);
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  background-image: url('waves.png'); 
+}
