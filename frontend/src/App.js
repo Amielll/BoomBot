@@ -19,7 +19,7 @@ function App(props) {
     const [token, setToken] = useState("");
 
     const authEndpoint = "https://accounts.spotify.com/authorize";
-    const redirectUri = "http://localhost:5001/home";
+    const redirectUri = "https://boombot.tech/home";
     const clientId = "8f833d646e234cf6bb70941dec55c334";
 
     const spotify = new SpotifyWebApi();
