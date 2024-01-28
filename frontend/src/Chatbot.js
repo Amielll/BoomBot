@@ -5,6 +5,7 @@ import Header from './Header';
 import './Chatbot.css';
 import boombox from './boombox.png';
 import waves from "./waves.png"
+import axios from 'axios';
 
 
 
@@ -59,13 +60,14 @@ function Chatbot(props) {
     const [mode, setMode] = React.useState("text");
 
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        if (promptContent === "") {
-            return;
-        }
-        setContent(content + promptContent + "\n");
-        setPromptContent("");
+    function handleSubmit() {
+        setContent(content + promptContent)
+        axios.post("http://127.0.0.1:5000/api/chat", {"userid": localStorage.getItem("cookie"), "prompt": promptContent}).then(response => {
+            setContent(content + promptContent + '\n' + '\n' + response.data + '\n' + '\n');
+            setPromptContent("")
+        }).catch(error => {
+            console.error(error);
+        })
     }
 
     const text = "In this guide, we show how to use the Chat endpoint to create a simple Chatbot that, given an input query, responds to it considering the previous context.";
@@ -100,10 +102,10 @@ function Chatbot(props) {
                             {content}
                         </div>
                         {mode === 'text' ?
-                            <form method='post' onSubmit={handleSubmit} style={{marginTop: '0.5rem'}}>
-                                <input className='prompt-text' value={promptContent} type='text' placeholder='Enter your prompt here.' onChange={(e) => setPromptContent(e.target.value)} />
-                                <input className='submit-button' type='submit' value='Submit' />
-                            </form>
+                            <div>
+                                <input className='prompt-text' type='text' value={promptContent} placeholder='Enter your prompt here.' onChange={(e) => setPromptContent(e.target.value)}/>
+                                <input onClick={() => handleSubmit()} type='submit'/>
+                            </div>
                             : null}
 
                         <Dictaphone mode={mode} handleSubmit={handleSubmit} content={content} setContent={setContent}></Dictaphone>
@@ -114,6 +116,7 @@ function Chatbot(props) {
                                 setMode('text');
                             }
                         }}>Change mode</button>
+                    
                     </div>
 
 
