@@ -102,7 +102,7 @@ function Chatbot(props) {
                     <div class="image-container"><img src={boombox} alt="boombox" className="boombox chat" /></div>
                     <div className='subheader-container'>
                         <div className='subheader-elem'>Ask me anything about music! </div>
-                        <div className='subheader-elem'>(P. S., I can also give recommendations!)</div>
+                        <div className='subheader-elem'>(P. S., You can choose between <br></br>text or speech input!)</div>
                     </div>
 
 
