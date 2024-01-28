@@ -11,7 +11,8 @@ app = Flask(__name__, static_folder='../frontend/build', static_url_path='/')
 @app.route("/playlist")
 @app.route("/chat")
 def serve_react_app():
-    return app.send_static_file("index.html")
+    return "Hi!"
+    #return app.send_static_file("index.html")
 
 
 @app.route("/api/suggestions")
