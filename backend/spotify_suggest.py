@@ -31,8 +31,21 @@ def getNostalgicSuggestions(token):
     artist_seed = "%2C".join(artist_ids)
     genre_seed = "%2C".join(genres)
 
+    # Get a max of 50 songs to sift through
     suggestions_req = requests.get(
-        f'https://api.spotify.com/v1/recommendations?seed_artists={artist_seed}&seed_genres={genre_seed}', headers=headers)
+        f'https://api.spotify.com/v1/recommendations?limit=50&seed_artists={artist_seed}&seed_genres={genre_seed}', headers=headers)
 
-    return suggestions_req.json()
-    # TODO: Last step is to filter response data by certain year and return only data that the client needs
+    # Step 5. Filter for songs before 2019 (pre-covid times :D)
+    tracks = suggestions_req.json()["tracks"]
+    final_track_list = []
+    for track in tracks:
+        release_date = track["album"]["release_date"]
+        year = release_date[:4] # release dates are in yyyy-mm-[dd] format
+        if int(year) <= 2019:
+            final_track_list.append(track)
+
+    # Suggest a max of 5
+    if len(final_track_list) > 10:
+        final_track_list = final_track_list[:10]
+
+    return final_track_list
