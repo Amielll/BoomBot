@@ -1,10 +1,10 @@
 import boombox from "./boombox.png"
 import './App.css';
-import { useEffect, useState } from "react"
+import {useEffect, useState} from "react"
 import SpotifyWebApi from "spotify-web-api-js"
 import Popup from "./popup.js";
-import { redirect } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import {redirect} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function App(props) {
     const setPlaylistActive = props.setPlaylistActive;
@@ -17,10 +17,10 @@ function App(props) {
     const [userAge, setUserAge] = useState(0);
     const [popupToggle, setPopupToggle] = useState(false);
     const [token, setToken] = useState("");
-    
+
     const authEndpoint = "https://accounts.spotify.com/authorize";
-    const redirectUri = "http://localhost:3000/home";
-    const clientId = "8e061b5b273b4471b3445424020de727";
+    const redirectUri = "http://localhost:5001/home";
+    const clientId = "8f833d646e234cf6bb70941dec55c334";
 
     const spotify = new SpotifyWebApi();
 
@@ -33,32 +33,6 @@ function App(props) {
     ]
 
     const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join("%20")}&response_type=token&show_dialog=true`;
-    
-    const getTokenFromUrl = () => {
-        return window.location.hash
-            .substring(1)
-            .split('&')
-            .reduce((initial, item) => {
-                let parts = item.split("=");
-                initial[parts[0]] = decodeURIComponent(parts[1]);
-                return initial;
-            }, {})
-    }
-
-    useEffect(() => {
-        const TOKEN = getTokenFromUrl().access_token;
-        window.location.hash = "";
-        localStorage.setItem("cookie", TOKEN);
-        setToken(TOKEN);
-        if (TOKEN) {
-            spotify.setAccessToken(TOKEN);
-            setPopupToggle(true);
-            spotify.getMe().then((user) => {
-                console.log(user);
-            })
-            
-        }
-    })
 
     const handleUserAgeInput = (age) => {
         setUserAge(age);
@@ -73,7 +47,7 @@ function App(props) {
     return (
         <div class="App">
             <div id="page-container">
-                <div id="content-wrap">  
+                <div id="content-wrap">
                     <div class="my-style">
                         BoomBot
                     </div>
@@ -84,7 +58,7 @@ function App(props) {
                         <a href={loginUrl} class="button-link">
                             <button id="button1">Log in with Spotify!</button>
                         </a>
-                    </div>            
+                    </div>
                 </div>
             </div>
             <div class="corner-border top-right"></div>

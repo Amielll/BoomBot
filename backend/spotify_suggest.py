@@ -2,6 +2,7 @@ import requests
 import json
 
 def getNostalgicSuggestions(token):
+    print("Got token: " + token)
     headers = {"Authorization": f'Bearer {token}'}
 
     # Step 1. Request for user's top artists
@@ -33,5 +34,5 @@ def getNostalgicSuggestions(token):
     suggestions_req = requests.get(
         f'https://api.spotify.com/v1/recommendations?seed_artists={artist_seed}&seed_genres={genre_seed}', headers=headers)
 
+    return suggestions_req.json()
     # TODO: Last step is to filter response data by certain year and return only data that the client needs
-    print(json.dumps(suggestions_req.json(), indent=4))
