@@ -119,6 +119,10 @@ color: #E9D7A5;} */
   font-size: 1.5rem;
   word-wrap: break-word;
   overflow-y: auto;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+
 }
 
 .prompt-container {
