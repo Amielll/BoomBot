@@ -1,5 +1,4 @@
 import requests
-import json
 
 def getNostalgicSuggestions(token):
     print("Got token: " + token)
