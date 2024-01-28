@@ -4,6 +4,27 @@ import {useEffect} from "react";
 
 export default function Home() {
 
+    useEffect(() => {
+        const getTokenFromUrl = () => {
+            return window.location.hash
+                .substring(1)
+                .split('&')
+                .reduce((initial, item) => {
+                    let parts = item.split("=");
+                    initial[parts[0]] = decodeURIComponent(parts[1]);
+                    return initial;
+                }, {});
+        };
+
+        console.log(getTokenFromUrl());
+        const token = getTokenFromUrl().access_token;
+        console.log("Trying to get token...");
+        if (token) {
+            console.log("Got token!");
+            localStorage.setItem("cookie", token);
+        }
+    }, []);
+
   return <>
    <Header focus="home"></Header>
             <div className='header-container1'>

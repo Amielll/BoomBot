@@ -1,5 +1,5 @@
 import Header from "./Header";
-import Playlist from "./Playlist.css";
+import "./Playlist.css";
 import cassette from "./cassette.png";
 
 function PlaylistGenerator(props) {
@@ -22,11 +22,24 @@ function PlaylistGenerator(props) {
             </div>
             
             <div class="gen-button">
-                <button class="generate" onClick={() => {
-                    
-                }}>
-                    Generate My Playlist!
-                </button>
+                <button class="generate" onClick={async () => {
+                        try {
+                            const accessToken = localStorage.getItem('cookie');
+                            const response = await fetch(`http://localhost:5001/suggestions?access_token=${accessToken}`, {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                            });
+
+                            const data = await response.json();
+                            console.log(data);
+                        } catch (error) {
+                            console.error('Failed to get suggestions:', error);
+                        }
+                    }}>
+                        Generate My Playlist!
+                    </button>
             </div>
             <div class="img-container">
                 <img src={cassette} alt="cassette" class="cassette"/>
