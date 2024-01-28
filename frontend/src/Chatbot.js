@@ -25,7 +25,7 @@ const Dictaphone = (props) => {
         if (transcript === "") {
             return;
         }
-        setContent(content + transcript + "\n");
+        setContent( content + 'You: ' + transcript + "\n");
         resetTranscript();
     }
 
@@ -62,9 +62,9 @@ function Chatbot(props) {
 
     function handleSubmit() {
         setPromptContent("")
-        setContent(content + promptContent)
+        setContent(content + 'You: ' + promptContent)
         axios.post("http://127.0.0.1:5000/api/chat", {"userid": localStorage.getItem("cookie"), "prompt": promptContent}).then(response => {
-            setContent(content + promptContent + '\n' + '\n' + response.data + '\n' + '\n');
+            setContent( content + 'You: ' + promptContent + '\n' + '\n' + 'BoomBot: ' +response.data + '\n' + '\n');
             
         }).catch(error => {
             console.error(error);
