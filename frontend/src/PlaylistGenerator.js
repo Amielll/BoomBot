@@ -25,7 +25,7 @@ function PlaylistGenerator(props) {
                 <button class="generate" onClick={async () => {
                         try {
                             const accessToken = localStorage.getItem('cookie');
-                            const response = await fetch(`http://localhost:5001/suggestions?access_token=${accessToken}`, {
+                            const response = await fetch(`https://boombot.tech/suggestions?access_token=${accessToken}`, {
                                 method: 'GET',
                                 headers: {
                                     'Content-Type': 'application/json',
