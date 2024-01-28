@@ -73,7 +73,7 @@ function Chatbot(props) {
     function handleSubmit() {
         setPromptContent("")
         setContent(content + 'You: ' + promptContent)
-        axios.post("http://127.0.0.1:5000/api/chat", {"userid": localStorage.getItem("cookie"), "prompt": promptContent}).then(response => {
+        axios.post("https://boombot.tech/api/chat", {"userid": localStorage.getItem("cookie"), "prompt": promptContent}).then(response => {
             setContent( content + 'You: ' + promptContent + '\n' + '\n' + 'BoomBot: ' +response.data + '\n' + '\n');
             
         }).catch(error => {
