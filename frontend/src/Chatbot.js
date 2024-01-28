@@ -21,6 +21,8 @@ const Dictaphone = (props) => {
     const content = props.content;
     const setContent = props.setContent;
 
+
+    /*
     const handleSubmit2 = () => {
         if (transcript === "") {
             return;
@@ -28,6 +30,19 @@ const Dictaphone = (props) => {
         setContent( content + 'You: ' + transcript + "\n");
         resetTranscript();
     }
+*/
+
+    function handleSubmit() {
+        resetTranscript("")
+        setContent( content + 'You: ' + transcript + "\n");
+        axios.post("http://127.0.0.1:5000/api/chat", {"userid": localStorage.getItem("cookie"), "prompt": transcript}).then(response => {
+            setContent( content + 'You: ' + transcript + '\n' + '\n' + 'BoomBot: ' +response.data + '\n' + '\n');
+            
+        }).catch(error => {
+            console.error(error);
+        })
+    }
+
 
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
@@ -38,7 +53,7 @@ const Dictaphone = (props) => {
             {mode === "audio" ?
                 <div className='prompt-container'>
                         <input className='prompt-text' value={transcript} placeholder='Your voice prompt will show here.' />
-                        <button className="submit-button" onClick={handleSubmit2}>Submit</button>
+                        <button className="submit-button" onClick={handleSubmit}>Submit</button>
                 </div> : null
             }
             <div className='button-container2' style={{marginTop: '1rem'}}>
@@ -109,7 +124,7 @@ function Chatbot(props) {
                             </div>
                             : null}
 
-                        <Dictaphone mode={mode} handleSubmit={handleSubmit} content={content} setContent={setContent}></Dictaphone>
+                        <Dictaphone mode={mode} onClick={() => handleSubmit()} content={content} setContent={setContent}></Dictaphone>
                         <button className='change-mode' onClick={() => {
                             if (mode === 'text') {
                                 setMode('audio');
