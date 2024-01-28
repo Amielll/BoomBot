@@ -66,9 +66,6 @@ def test():
         print("Text:" + response.text)
         return response.text
 
-
-
-
 @app.route('/api/insert', methods = ['POST'])
 def test_insert():
     if request.method == "POST":
