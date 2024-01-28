@@ -28,7 +28,7 @@ const Dictaphone = (props) => {
         }
         setContent( content + 'You: ' + transcript + "\n");
         
-        axios.post("http://127.0.0.1:5000/api/chat", {"userid": localStorage.getItem("cookie"), "prompt": transcript}).then(response => {
+        axios.post("https://boombot.tech/api/chat", {"userid": localStorage.getItem("cookie"), "prompt": transcript}).then(response => {
             setContent( content + 'You: ' + transcript + '\n' + '\n' + 'BoomBot: ' +response.data + '\n' + '\n');
             
         }).catch(error => {
