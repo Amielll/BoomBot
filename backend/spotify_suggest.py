@@ -41,9 +41,10 @@ def getNostalgicSuggestions(token):
         release_date = track["album"]["release_date"]
         year = release_date[:4] # release dates are in yyyy-mm-[dd] format
         if int(year) <= 2019:
+            names = [entry['name'] for entry in track["artists"]]
             track_entry = {
                 "title": track["name"],
-                "artists": ",".join(track["artists"])
+                "artists": ", ".join(names)
             }
             final_track_list.append(track_entry)
 
