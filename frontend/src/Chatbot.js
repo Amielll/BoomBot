@@ -61,10 +61,11 @@ function Chatbot(props) {
 
 
     function handleSubmit() {
+        setPromptContent("")
         setContent(content + promptContent)
         axios.post("http://127.0.0.1:5000/api/chat", {"userid": localStorage.getItem("cookie"), "prompt": promptContent}).then(response => {
             setContent(content + promptContent + '\n' + '\n' + response.data + '\n' + '\n');
-            setPromptContent("")
+            
         }).catch(error => {
             console.error(error);
         })
@@ -102,9 +103,9 @@ function Chatbot(props) {
                             {content}
                         </div>
                         {mode === 'text' ?
-                            <div>
-                                <input className='prompt-text' type='text' value={promptContent} placeholder='Enter your prompt here.' onChange={(e) => setPromptContent(e.target.value)}/>
-                                <input onClick={() => handleSubmit()} type='submit'/>
+                            <div style={{marginTop: '0.5rem'}}>
+                                <input className='prompt-text' type='text' value={promptContent} placeholder='Enter your prompt here.' onChange={(e) => setPromptContent(e.target.value)}   />
+                                <input className='submit-button' onClick={() => handleSubmit()} type='submit'/>
                             </div>
                             : null}
 
