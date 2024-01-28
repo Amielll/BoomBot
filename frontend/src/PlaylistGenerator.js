@@ -1,10 +1,12 @@
 import Header from "./Header";
 import "./Playlist.css";
-import cassette from "./cassette.png";
+import { useState } from "react";
 
 function PlaylistGenerator(props) {
     const setPlaylistActive = props.setPlaylistActive;
     const setAppActive = props.setAppActive;
+    const [playlist, setPlaylist] = useState([]);
+    console.log(playlist)
 
     return (
         <div>
@@ -16,8 +18,7 @@ function PlaylistGenerator(props) {
             <div class="gen-desc-container">
                 <div class="gen-desc">
                     Looking for some older songs that fit your music taste? 
-                    BoomBot is here to recommend you up to 10 nostalgic tunes, and give you a 
-                    fitting playlist name and description right in your Spotify Library.
+                    BoomBot is here to recommend you up to 10 nostalgic tunes to add to your playlist!
                 </div>
             </div>
             
@@ -32,17 +33,37 @@ function PlaylistGenerator(props) {
                                 },
                             });
 
-                            const data = await response.json();
+                            const data = await response.json().then((data) => {
+                                const songs = data.songs;
+                                const songList = [];
+                                for (var i = 0; i < 10; i++) {
+                                    songList.push(songs[i].title + " - " + songs[i].artists);
+                                }
+                                setPlaylist(songList);
+                            });
                             console.log(data);
                         } catch (error) {
                             console.error('Failed to get suggestions:', error);
                         }
                     }}>
-                        Generate My Playlist!
+                        Generate My Tunes!
                     </button>
             </div>
-            <div class="img-container">
-                <img src={cassette} alt="cassette" class="cassette"/>
+            <div class="playlist-container"> 
+            <div className="playlist-div">
+            <ul>
+                {playlist.slice(0,5).map(song => {
+                    return <li>{song}</li>
+                }) }
+            </ul>
+            </div>
+            <div className="playlist-div">
+            <ul>
+            {playlist.slice(5,10).map(song => {
+                    return <li>{song}</li>
+                }) }
+            </ul>
+            </div>
             </div>
             <div class="corner-border top-right"></div>
             <div class="corner-border bottom-left"></div>
