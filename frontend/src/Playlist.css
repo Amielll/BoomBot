@@ -71,7 +71,7 @@
   position: relative;
 }
 
-button{
+.generate{
   position: absolute;
   top: calc(100% + 48px); /* Move the button down by 20 pixels relative to the bottom of its container */
   left: 50%; /* Center horizontally */
