@@ -19,9 +19,11 @@ const Dictaphone = (props) => {
     const mode = props.mode;
     const content = props.content;
     const setContent = props.setContent;
-    const promptContent = props.promptContent;
 
     const handleSubmit2 = () => {
+        if (transcript === "") {
+            return;
+        }
         setContent(content + transcript + "\n");
         resetTranscript();
     }
@@ -31,15 +33,15 @@ const Dictaphone = (props) => {
     }
 
     return (
-        <div>
+        <div style={{display: "inline-block"}}>
             {mode === "audio" ?
                 <div className='prompt-container'>
                         <input className='prompt-text' value={transcript} placeholder='Your voice prompt will show here.' />
-                        <button onClick={handleSubmit2}>Submit</button>
+                        <button className="submit-button" onClick={handleSubmit2}>Submit</button>
                 </div> : null
             }
-            <div className='button-container2'>
-                <p className='microphone'>Microphone: {listening ? 'on' : 'off'}</p>
+            <div className='button-container2' style={{marginTop: '1rem'}}>
+                <div className='microphone' style={{marginRight: '1rem'}}>Microphone: {listening ? 'on' : 'off'}</div>
                 <button className='button-elem2' onClick={SpeechRecognition.startListening}>Start</button>
                 <button className='button-elem2' onClick={SpeechRecognition.stopListening}>Stop</button>
                 <button className='button-elem2' onClick={resetTranscript}>Reset</button>
@@ -59,6 +61,9 @@ function Chatbot(props) {
 
     function handleSubmit(event) {
         event.preventDefault();
+        if (promptContent === "") {
+            return;
+        }
         setContent(content + promptContent + "\n");
         setPromptContent("");
     }
@@ -95,8 +100,9 @@ function Chatbot(props) {
                             {content}
                         </div>
                         {mode === 'text' ?
-                            <form method='post' onSubmit={handleSubmit}>
+                            <form method='post' onSubmit={handleSubmit} style={{marginTop: '0.5rem'}}>
                                 <input className='prompt-text' value={promptContent} type='text' placeholder='Enter your prompt here.' onChange={(e) => setPromptContent(e.target.value)} />
+                                <input className='submit-button' type='submit' value='Submit' />
                             </form>
                             : null}
 
