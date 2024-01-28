@@ -16,7 +16,7 @@ function PlaylistGenerator(props) {
             <div class="gen-desc-container">
                 <div class="gen-desc">
                     Looking for some older songs that fit your music taste? 
-                    BoomBot is here to recommend you 5 nostalgic tunes, and give you a 
+                    BoomBot is here to recommend you up to 10 nostalgic tunes, and give you a 
                     fitting playlist name and description right in your Spotify Library.
                 </div>
             </div>
