@@ -1,0 +1,32 @@
+.header-elem-container {
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+    align-items: center;
+    padding: 0 1rem;
+    height: 3rem;
+    background-color: #D37E60;
+    color: #E7CC7F;
+    font-size: 2rem;
+    font-weight: 500;
+    box-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.9);  
+    height: 3.5rem;
+}
+
+.header-elem {
+    margin: 0 1rem;
+    cursor: pointer;  
+}
+
+.header-elem:hover {
+    color: #E9D7A5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-elem-focus {
+  color: #E9D7A5;
+}
